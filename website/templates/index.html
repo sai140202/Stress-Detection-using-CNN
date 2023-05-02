@@ -379,7 +379,7 @@
     // Import the functions you need from the SDKs you need
     
     import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-    import { getDatabase,set ,ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getDatabase,set ,ref, update, child, serverTimestamp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
@@ -402,6 +402,7 @@
     const analytics = getAnalytics(app);
     const auth = getAuth();
     const database = getDatabase(app);
+    const usersRef = ref(database, 'users');
     console.log(app);
 
 
@@ -442,11 +443,9 @@ for (var i = 0; i < radios.length; i++) {
           password: password,
           number : number,
           gender : gender,
-          roles : roles
+          roles : roles          
 });
 }
-
-         
           alert("Registration successfully!!");
           // ...
         })
@@ -469,10 +468,31 @@ for (var i = 0; i < radios.length; i++) {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+          var uid = user.uid;
+          setUserOnline(uid);
           console.log(user);
+          console.log(uid);
           alert(" Login successfully!!!");
 
-          window.location.href = "/userpage";
+          if (uid === "VqYfspVm3nYZZlxanxiwwHHVkSn2") {
+      window.location.href = "/dashboard"; // Redirect to the admin page.
+    } else {
+      window.location.href = "/userpage"; // Redirect to the user page.
+    }
+
+          // demo start
+
+
+function setUserOnline(userId) {
+  const userRef = child(usersRef, userId);
+  update(userRef, {
+    online: true,
+    lastOnline: serverTimestamp()
+  });
+}
+
+
+        //  demo ends
           // ...
         })
         .catch((error) => {
@@ -482,21 +502,7 @@ for (var i = 0; i < radios.length; i++) {
           alert(errorMessage);
         });		  		  
     });
-    //----- End
-
-    //----- Logout code start	  
-  //   document.getElementById("logout").addEventListener("click", function() {
-  // 	  signOut(auth).then(() => {
-  // 		  // Sign-out successful.
-  // 		  console.log('Sign-out successful.');
-  // 		  alert('Sign-out successful.');
-  // 		  document.getElementById('logout').style.display = 'none';
-  // 		}).catch((error) => {
-  // 		  // An error happened.
-  // 		  console.log('An error happened.');
-  // 		});		  		  
-  //   });
-    //----- End
+  
 
   </script>
 </body>
