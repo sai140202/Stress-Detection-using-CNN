@@ -1,0 +1,6 @@
+Flask==2.0.2
+Flask-SocketIO==5.1.1
+numpy==1.21.1
+Keras==2.4.3
+tensorflow==2.5.0
+opencv-python==4.5.3.56
