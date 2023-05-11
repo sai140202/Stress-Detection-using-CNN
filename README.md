@@ -21,7 +21,7 @@
        <li>Run the Flask application: <code>`python app.py`</code></li>
     </ol>
      <h2>License</h2>
-    <p>none</p>
+    <p>MIT License</p>
    
   </body>
 </html>
