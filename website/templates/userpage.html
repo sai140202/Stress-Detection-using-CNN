@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="../static/css/tailwind.output.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
@@ -32,7 +33,7 @@
       <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+            class="container flex items-center justify-end h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
             <!-- Mobile hamburger -->
             <button
@@ -54,33 +55,8 @@
               </svg>
             </button>
             <!-- Search input -->
-            <div class="flex justify-center flex-1 lg:mr-32">
-              <div
-                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
-              >
-                <div class="absolute inset-y-0 flex items-center pl-2">
-                  <svg
-                    class="w-4 h-4"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <input
-                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                  type="text"
-                  placeholder="Search for projects"
-                  aria-label="Search"
-                />
-              </div>
-            </div>
-            <ul class="flex items-center flex-shrink-0 space-x-6">
+            
+            <ul class="flex items-center  flex-shrink-0 space-x-6">
               <!-- Theme toggler -->
               <li class="flex">
                 <button
@@ -222,11 +198,11 @@
               <div class="w-full overflow-x-auto">
                 
               </div>
-              <img style="width: 200px; height: 200px;" class="rounded"  id="avatar"  alt="Extra large avatar">
+              <img style="width: 200px; height: 200px; border-radius: 90px;" class="rounded"  id="avatar"  alt="Extra large avatar">
               <h1 style="margin-left: 30px; font-size: xx-large; font-weight: 600; font-family:Verdana, Geneva, Tahoma, sans-serif;" id="name">Name</h1>
               <h3 class="text-black dark:text-white" style="margin-top: 20px; font-weight:600; font-size: larger; margin-left: 30px;">User Details</h3>
               
-<div class="relative overflow-x-auto">
+<div class="relative overflow-x-auto mb-6">
   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       
       <tbody>
@@ -271,15 +247,30 @@
   </table>
 </div>
 
-              
-              <div>
-                
-          
-              </div>
             </div>
           </div>
           <!-- chart -->
-          <div  class="flex justify-center mt-6" id="chart"></div>
+          <div class="flex justify-center mt-6" style="width: 1000px; margin: 0 auto;"   id="chart"></div>
+          <p style= "display: block; text-align: center; margin-top: 30px; font-size: 25px; font-weight: 800; ">Stress Details</p>
+          <div class="flex justify-center mt-6 ">
+     
+            <div style="width: 400px ; text-align: left; font-weight: 400; font-size: 20px;">
+              <h3 style="display:inline;">Stress count :</h3>
+              <span id="stress-count"></span>
+              <br>
+              <br>
+              <h3 style="display:inline;">Neutral count :</h3>
+              <span id="neutral-count"></span>
+
+
+            </div>
+            <div>
+              <canvas id="myChart"></canvas>
+
+
+            </div>
+      
+          </div>
         </main>
       </div>
       
@@ -316,11 +307,31 @@
 	  const auth = getAuth(app);
       const database = getDatabase(app);
       const usersRef = ref(database, 'users');
+    // Call the updateValue function every 5 seconds
+      setInterval(updateValue, 5000);
 
+      function updateValue()
+      {
+        const userId = getAuth().currentUser.uid;
+        update1(userId)
+      }
+
+      function update1(userId)
+      {
+        // stresscount = (stresscount/100)*100;
+        const userRef = child(usersRef, userId);
+  update(userRef, {
+    StressCount : stresscount
+  });
+      }
+
+      
 
       
      function myFunction()
      {
+      stresscount =0;
+      neutralcount =0;
        const userId = getAuth().currentUser.uid;
        setUserOffline(userId);
       signOut(auth).then(() => {
@@ -337,17 +348,23 @@
           alert(errorMessage);
      });		  		  
      }
+       
 
      function setUserOffline(userId) {
+      
   const userRef = child(usersRef, userId);
   update(userRef, {
     online: false,
-    lastOnline: serverTimestamp()
+    lastOnline: serverTimestamp(),
+    StressCount:0
   });
 }
      document.getElementById("logout").addEventListener("click", myFunction);
 
-    
+    //stress stats
+
+    var stresscount =0;
+    var neutralcount =0;
 
 
 
@@ -357,7 +374,7 @@
       var y = [];
 
       var layout = {
-        title: 'Continuous Data Example',
+        title: 'Continuous Data',
         xaxis: { title: 'Time' },
         yaxis: { title: 'Value' }
       };
@@ -379,11 +396,76 @@
           x.shift();
           y.shift();
         }
+
+        console.log(msg.value);
+        // console.log(stresscount," ",neutralcount);
+        if(msg.value === "stress")
+        {
+          stresscount++;
+          document.getElementById("stress-count").innerHTML = stresscount;
+        }
+        else{
+          neutralcount++;
+          document.getElementById("neutral-count").innerHTML = neutralcount;
+        }
         Plotly.update('chart', {
           x: [x],
           y: [y]
         });
       });
+
+
+
+      //pie chart
+     
+    // initialize data variables
+let value1 = stresscount;
+let value2 = neutralcount;
+
+// create a pie chart
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ['Stress', 'Neutral'],
+    datasets: [{
+      label: 'Continuous Values',
+      data: [value1, value2],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: false,
+    plugins: {
+      legend: {
+        position: 'top'
+      }
+    }
+  }
+});
+
+// update the chart data every second
+setInterval(() => {
+  // generate random continuous values
+  value1 = stresscount;
+  value2 = neutralcount;
+
+  // update the chart data
+  myChart.data.datasets[0].data = [value1, value2];
+  myChart.update();
+}, 1000);
+
+   
+  
+
 
      
     </script>

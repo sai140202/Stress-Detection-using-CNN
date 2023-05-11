@@ -14,9 +14,12 @@
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="../static/js/init-alpine.js"></script>
+   <script src="../static/js/init-alpine.js"></script>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
   </head>
   <body>
+
     <div
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen}">
@@ -29,7 +32,7 @@
       <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+            class="container flex items-center justify-end h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
             <!-- Mobile hamburger -->
             <button
@@ -50,33 +53,8 @@
                 ></path>
               </svg>
             </button>
-            <!-- Search input -->
-            <div class="flex justify-center flex-1 lg:mr-32">
-              <div
-                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
-              >
-                <div class="absolute inset-y-0 flex items-center pl-2">
-                  <svg
-                    class="w-4 h-4"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <input
-                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                  type="text"
-                  placeholder="Search for projects"
-                  aria-label="Search"
-                />
-              </div>
-            </div>
+      
+            
             <ul class="flex items-center flex-shrink-0 space-x-6">
               <!-- Theme toggler -->
               <li class="flex">
@@ -196,7 +174,7 @@
                 >
                   <img
                     class="object-cover w-8 h-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
+                    src="../static/css/f.jpg"
                     alt=""
                     aria-hidden="true"
                   />
@@ -285,11 +263,11 @@
           </div>
         </header>
         <main class="h-full pb-16 overflow-y-auto">
-          <div class="container grid px-6 mx-auto">
+          <div class="container grid px-6 mx-auto mt-6">
             
               Table with actions
             </h4>
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+            <div class="w-full overflow-hidden rounded-lg shadow-xs mt-2">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap" >
                   <thead>
@@ -325,12 +303,18 @@
         </main>
       </div>
     </div>
+   
+    
   
 
 <script  type="module">
+
+ 
+
+
 var stdno =0;
 const tableBody = document.querySelector("#table-body"); 
-function AddItemToTable( name , roles, number , mail , gender ,status)
+function AddItemToTable( name , roles, number , mail , gender ,status, StressCount)
 {
       
 
@@ -376,6 +360,72 @@ namediv.appendChild(td6);
 myDiv.appendChild(namediv);
 t1.appendChild(myDiv);
 
+
+//push message
+let td7 = document.createElement("td");
+var iTag = document.createElement("i");
+iTag.setAttribute("class", "material-icons","inline-block","cursor-pointer");
+iTag.innerHTML = "email";
+td7.appendChild(iTag);
+td7.classList.add("text-center","cursor-pointer");
+
+// Add an event listener to the <i> tag
+  iTag.addEventListener("click", function() {
+  // Do something when the icon is clicked
+
+  const accountSid = 'ACa4c7750616eff9b924f31326a7b25c12';
+const authToken = 'd38f488322b5cc4ee528dc3a49c61910';
+const fromNumber = +14753487403;
+const toNumber = number;
+const message = `Dear ${name},
+You have ${StressCount}% stress, Working in the technology industry can be rewarding and challenging at the same time.
+
+If you recognize any of stress signs, it is important to take action to manage your stress. Here are some tips to help you cope:
+
+1)Practice relaxation techniques such as deep breathing, meditation, or yoga.
+2)Take breaks and go for a walk or engage in physical activity during the day.
+3)Prioritize your tasks and set realistic goals for yourself.
+4)Seek support from your colleagues or a professional counselor.
+5)Talk to your admin about your concerns and work together to find solutions.`;
+
+fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
+  method: 'POST',
+  headers: {
+    'Authorization': `Basic ${btoa(`${accountSid}:${authToken}`)}`,
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: `From=${encodeURIComponent(fromNumber)}&To=${encodeURIComponent(toNumber)}&Body=${encodeURIComponent(message)}`
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log(error));
+
+  
+
+//   const accountSid = ACa4c7750616eff9b924f31326a7b25c12;
+// const authToken = d38f488322b5cc4ee528dc3a49c61910;
+// const client = new twilio(accountSid, authToken);
+
+//   client.messages
+//       .create({
+//          body: 'This is a test message from Twilio',
+//          from: +14753487403,
+//          to: number
+//       })
+//       .then(message => console.log(message.sid))
+//       .catch(error => console.log(error));
+  
+  alert("The message has been sent to "+number);
+});
+
+
+
+
+
+
+
+
+
 //staus data
 
 const statusSpan = document.createElement("span");
@@ -410,15 +460,37 @@ else{
   td4.appendChild(statusSpan);
 
   let td5 = document.createElement("td");
+
   
+// sno
+
+const mydivsno = document.createElement("div");
+const para  =document.createElement("P");
+para.innerHTML = ++stdno;
+mydivsno.classList.add("text-center");
+mydivsno.appendChild(para);
+td1.appendChild(mydivsno);
+
 
   
 
-  td1.innerHTML = ++stdno;
+  // td1.innerHTML = ++stdno;
   td2.innerHTML = name;
   td3.innerHTML = mail;
   // td4.innerHTML = status;
-  // td5.innerHTML = mail;
+
+  //Stress Status
+  if(StressCount != 0 ){
+    
+const mydivsno1 = document.createElement("div");
+const para1  =document.createElement("P");
+para1.innerHTML = StressCount+"%";
+mydivsno1.classList.add("text-center");
+mydivsno1.appendChild(para1);
+td5.appendChild(mydivsno1);
+    
+  }
+  
   td6.innerHTML = roles;
 
   trow.appendChild(td1);
@@ -427,7 +499,7 @@ else{
   trow.appendChild(td3);
   trow.appendChild(td4);
   trow.appendChild(td5);
-  // trow.appendChild(td6);
+  trow.appendChild(td7);
 
   tableBody.appendChild(trow);
 
@@ -446,9 +518,10 @@ function all(details,status)
         const mail = Element.email;
         const gender = Element.gender;
         const status = Element.online;
+        const StressCount = Element.StressCount;
         if(name != "Admin")
         {
-          AddItemToTable(  name , roles, number , mail , gender,status);
+          AddItemToTable(  name , roles, number , mail , gender,status,StressCount);
         }
        
   })
@@ -463,10 +536,10 @@ function all(details,status)
 
 
 
-import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-      import { getDatabase,set ,ref , child, get ,onValue} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-	  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+  import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import { getDatabase,set ,ref , child, get ,onValue} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+	import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js"; 
+	import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 	  // TODO: Add SDKs for Firebase products that you want to use
 	  // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -510,7 +583,7 @@ import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/fireba
           status = "offline";
         }
         });
-        console.log(status);
+        // console.log(status);
         details.push(data);
         all(details);       
 

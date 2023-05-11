@@ -7,212 +7,297 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
- 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-	<!-- Bootstrap theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
-        .modal-box{ font-family: 'Poppins', sans-serif; }
- .show-modal{
-     color: #fff;
-     background: linear-gradient(to right, #33a3ff, #0675cf, #49a6fd);
-     font-size: 18px;
-     font-weight: 600;
-     text-transform: capitalize;
-     padding: 10px 15px;
-     margin: 200px auto 0;
-     border: none;
-     outline: none;
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-     display: block;
-     transition: all 0.3s ease 0s;
- }
- .show-modal:hover,
- .show-modal:focus{
-     color: #fff;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-     outline: none;
- }
- .modal-dialog{
-     width: 400px;
-     margin: 70px auto 0;
- }
- .modal-dialog{ transform: scale(0.5); }
- .modal-dialog{ transform: scale(1); }
- .modal-dialog .modal-content{
-     text-align: center;
-     border: none;
- }
- .modal-content .close{
-     color: #fff;
-     background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
-     font-size: 25px;
-     font-weight: 400;
-     text-shadow: none;
-     line-height: 27px;
-     height: 25px;
-     width: 25px;
-     border-radius: 50%;
-     overflow: hidden;
-     opacity: 1;
-     position: absolute;
-     left: auto;
-     right: 8px;
-     top: 8px;
-     z-index: 1;
-     transition: all 0.3s;
- }
- .modal-content .close:hover{
-     color: #fff;
-     box-shadow: 0 0 5px rgba(0,0,0,0.5);
- }
- .close:focus{ outline: none; }
- .modal-body{ padding: 60px 40px 40px !important; }
- .modal-body .title{
-     color: #026fd4;
-     font-size: 33px;
-     font-weight: 700;
-     letter-spacing: 1px;
-     margin: 0 0 10px;
- }
- .modal-body .description{
-     color: #9A9EA9;
-     font-size: 16px;
-     margin: 0 0 20px;
- }
- .modal-body .form-group{
-     text-align: left;
-     margin-bottom: 20px;
-     position: relative;
- }
- .modal-body .input-icon{
-     color: #777;
-     font-size: 18px;
-     transform: translateY(-50%);
-     position: absolute;
-     top: 50%;
-     left: 20px;
- }
- .modal-body .form-control{
-     font-size: 17px;
-     height: 45px;
-     width: 100%;
-     padding: 6px 0 6px 50px;
-     margin: 0 auto;
-     border: 2px solid #eee;
-     border-radius: 5px;
-     box-shadow: none;
-     outline: none;
- }
- .form-control::placeholder{
-     color: #AEAFB1;
- }
- .form-group.checkbox{
-     width: 130px;
-     margin-top: 0;
-     display: inline-block;
- }
- .form-group.checkbox label{
-     color: #9A9EA9;
-     font-weight: normal;
- }
- .form-group.checkbox input[type=checkbox]{
-     margin-left: 0;
- }
- .modal-body .forgot-pass{
-     color: #7F7FD5;
-     font-size: 13px;
-     text-align: right;
-     width: calc(100% - 135px);
-     margin: 2px 0;
-     display: inline-block;
-     vertical-align: top;
-     transition: all 0.3s ease 0s;
- }
- .forgot-pass:hover{
-     color: #9A9EA9;
-     text-decoration: underline;
- }
- .modal-content .modal-body .btn{
-     color: #fff;
-     background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
-     font-size: 16px;
-     font-weight: 500;
-     letter-spacing: 1px;
-     text-transform: uppercase;
-     line-height: 38px;
-     width: 100%;
-     height: 40px;
-     padding: 0;
-     border: none;
-     border-radius: 5px;
-     border: none;
-     display: inline-block;
-     transition: all 0.6s ease 0s;
- }
- .modal-content .modal-body .btn:hover{
-     color: #fff;
-     letter-spacing: 2px;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
- }
- .modal-content .modal-body .btn:focus{ outline: none; }
- @media only screen and (max-width: 480px){
-     .modal-dialog{ width: 95% !important; }
-     .modal-content .modal-body{
-         padding: 60px 20px 40px !important;
-     }
- }
- 
-   </style>
+        .modal-box {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .show-modal {
+            color: #fff;
+            background: linear-gradient(to right, #33a3ff, #0675cf, #49a6fd);
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: capitalize;
+            padding: 10px 15px;
+            margin: 200px auto 0;
+            border: none;
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: block;
+            transition: all 0.3s ease 0s;
+        }
+
+        .show-modal:hover,
+        .show-modal:focus {
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            outline: none;
+        }
+
+        .modal-dialog {
+            width: 400px;
+            margin: 70px auto 0;
+        }
+
+        .modal-dialog {
+            transform: scale(0.5);
+        }
+
+        .modal-dialog {
+            transform: scale(1);
+        }
+
+        .modal-dialog .modal-content {
+            text-align: center;
+            border: none;
+        }
+
+        .modal-content .close {
+            color: #fff;
+            background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
+            font-size: 25px;
+            font-weight: 400;
+            text-shadow: none;
+            line-height: 27px;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            opacity: 1;
+            position: absolute;
+            left: auto;
+            right: 8px;
+            top: 8px;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .modal-content .close:hover {
+            color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .close:focus {
+            outline: none;
+        }
+
+        .modal-body {
+            padding: 60px 40px 40px !important;
+        }
+
+        .modal-body .title {
+            color: #026fd4;
+            font-size: 33px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 0 0 10px;
+        }
+
+        .modal-body .description {
+            color: #9A9EA9;
+            font-size: 16px;
+            margin: 0 0 20px;
+        }
+
+        .modal-body .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .modal-body .input-icon {
+            color: #777;
+            font-size: 18px;
+            transform: translateY(-50%);
+            position: absolute;
+            top: 50%;
+            left: 20px;
+        }
+
+        .modal-body .form-control {
+            font-size: 17px;
+            height: 45px;
+            width: 100%;
+            padding: 6px 0 6px 50px;
+            margin: 0 auto;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: #AEAFB1;
+        }
+
+        .form-group.checkbox {
+            width: 130px;
+            margin-top: 0;
+            display: inline-block;
+        }
+
+        .form-group.checkbox label {
+            color: #9A9EA9;
+            font-weight: normal;
+        }
+
+        .form-group.checkbox input[type=checkbox] {
+            margin-left: 0;
+        }
+
+        .modal-body .forgot-pass {
+            color: #7F7FD5;
+            font-size: 13px;
+            text-align: right;
+            width: calc(100% - 135px);
+            margin: 2px 0;
+            display: inline-block;
+            vertical-align: top;
+            transition: all 0.3s ease 0s;
+        }
+
+        .forgot-pass:hover {
+            color: #9A9EA9;
+            text-decoration: underline;
+        }
+
+        .modal-content .modal-body .btn {
+            color: #fff;
+            background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 38px;
+            width: 100%;
+            height: 40px;
+            padding: 0;
+            border: none;
+            border-radius: 5px;
+            border: none;
+            display: inline-block;
+            transition: all 0.6s ease 0s;
+        }
+
+        .modal-content .modal-body .btn:hover {
+            color: #fff;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content .modal-body .btn:focus {
+            outline: none;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .modal-dialog {
+                width: 95% !important;
+            }
+
+            .modal-content .modal-body {
+                padding: 60px 20px 40px !important;
+            }
+        }
+
+        .nav-bar {
+            position: relative;
+        }
+
+        #myButton {
+
+            border: none;
+            cursor: pointer;
+        }
+
+        #myPopup {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 10px;
+            border: none;
+            display: none;
+        }
+
+        #myPopup a {
+            display: block;
+            color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
 
 <body>
     <nav class="nav-bar">
-        <div id="title"> <h1>Stress Detection System </h1></div>
-        <div class="links">
-            <a   data-toggle="modal" data-target="#myModal">
-            Login
-          </a>
-          <br>
-            
-            <a   data-toggle="modal" data-target="#myModal1">
-                Register 
-              </a>
-           <br>
-            <a >About us</a><br>
+        <div id="title">
+            <h1>Stress Detection System </h1>
         </div>
-       
-       
+        <div class="links">
+            <a data-toggle="modal" data-target="#myModal">
+                Login
+            </a>
+            <br>
+
+            <a data-toggle="modal" data-target="#myModal1">
+                Register
+            </a>
+            <br>
+            <button style=" background-color: transparent;border:0 ; font-size: 20px; font-weight:inherit;"
+                id="myButton">About us</button><br>
+            <div id="myOptions" style="display:none;">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
+        </div>
+
+
+
     </nav>
 
-    
-    <img  src="../static/css/crop bg stress.png" width="100%" height="100%">
-    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; " >Abstract of a Project </h3>
+
+    <img src="../static/css/crop bg stress.png" width="100%" height="100%">
+    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; ">Abstract of a Project </h3>
     <div class="abstract">
-        <span >     The main motive of our project is to detect stress in the IT professionals using vivid Machine learning and Image processing techniques. Our system is an upgraded version of the old stress detection systems which excluded the live detection and the personal counseling but this system comprises of live detection and periodic analysis of employees and detecting physical as well as mental stress levels in his/her by providing them with proper remedies for managing stress by providing survey form periodically. Our system mainly focuses on managing stress and making the working environment healthy and spontaneous for the employees and to get the best out of them during working hours.
+        <span> The main motive of our project is to detect stress in the IT professionals using vivid Machine learning
+            and Image processing techniques. Our system is an upgraded version of the old stress detection systems which
+            excluded the live detection and the personal counseling but this system comprises of live detection and
+            periodic analysis of employees and detecting physical as well as mental stress levels in his/her by
+            providing them with proper remedies for managing stress by providing survey form periodically. Our system
+            mainly focuses on managing stress and making the working environment healthy and spontaneous for the
+            employees and to get the best out of them during working hours.
     </div>
-    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; " >Project OverView</h3>
-    <div  class="details">
-       
+    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; ">Project OverView</h3>
+    <div class="details">
+
         <div class="box">
-            <span>This project's problem statement is taken from IEEE 2022 paper</span>
+            <span>This is a realtime project build with ANN and machine learning</span>
         </div>
         <div class="box">
-            <span>We used Convolutional Neural Network to detect the stress of an employee</span>
+            <span>We used CNN with SVM to detect the stress of an employee</span>
         </div>
         <div class="box">
-            <span>This machine model will give  >80% accuracy</span>
+            <span>This machine model will gives >85% accuracy</span>
         </div>
     </div>
-    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; " >Accuracy of a CNN model</h3>
+    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; ">Architecture of our model
+    </h3>
     <div style="display: flex; justify-content: space-evenly;">
-        <img src="../static/f.jpg">
-        <img src="../static/css/f.jpg">
+        <img src="../static/css/arch f.png" style="width: 800px;">
+
     </div>
-    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; margin-top: 70px;" >Team Details</h3>
+    <h3 style="font-size: 35px; display: flex; justify-content: center; margin-top: 35px; margin-top: 70px;">Team
+        Details</h3>
     <div class="team-details" style="display: flex; justify-content: space-evenly;">
         <div class="team">
             <img class="photo" src="../static/css/female.png">
@@ -230,7 +315,7 @@
             <img class="photo" src="../static/css/male.jpg">
             <span class="name">vishal</span>
         </div>
-      
+
     </div>
 
 
@@ -240,29 +325,32 @@
             <div class="col-md-12">
                 <div class="modal-box">
                     <!-- Button trigger modal -->
-     
+
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content clearfix">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
                                 <div class="modal-body">
                                     <h3 class="title">Login Form</h3>
                                     <p class="description">Login here Using Email & Password</p>
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fa fa-user"></i></span>
-                                        <input type="email" class="form-control" placeholder="Enter email" id="login_email">
+                                        <input type="email" class="form-control" placeholder="Enter email"
+                                            id="login_email">
                                     </div>
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fas fa-key"></i></span>
-                                        <input type="password" class="form-control" placeholder="Password" id="login_password">
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            id="login_password">
                                     </div>
                                     <div class="form-group checkbox">
                                         <input type="checkbox">
                                         <label>Remamber me</label>
                                     </div>
                                     <a href="" class="forgot-pass">Forgot Password?</a>
-                                    <button class="btn"name="login" id="login">Login</button>
+                                    <button class="btn" name="login" id="login">Login</button>
                                 </div>
                             </div>
                         </div>
@@ -277,12 +365,13 @@
             <div class="col-md-12">
                 <div class="modal-box">
                     <!-- Button trigger modal -->
-     
+
                     <!-- Modal -->
                     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content clearfix">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
                                 <div class="modal-body">
                                     <h3 class="title">Register Form</h3>
                                     <p class="description">Register here Using Email & Password</p>
@@ -290,66 +379,70 @@
                                         <span class="input-icon"><i class="fa fa-user"></i></span>
                                         <input id="name" type="name" class="form-control" placeholder="Enter Name">
                                     </div>
-                                   
+
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fas fa-mail-bulk"></i></span>
-                                        <input id="email"  type="email" class="form-control" placeholder="Enter email">
+                                        <input id="email" type="email" class="form-control" placeholder="Enter email">
                                     </div>
-                                   
-    
+
+
                                     <div class="form-group">
-                                        
-                                            <span class="input-icon"  ><i class="fa fa-transgender-alt"></i></span>
+
+                                        <span class="input-icon"><i class="fa fa-transgender-alt"></i></span>
                                         <div style="margin-left: 55px;">
-                                  
-                                          <input type="radio" name="gender" value="male">
-                                          <label>Male</label>
-                                          <input type="radio" name="gender" value="female" >
-                                          <label>Female</label>
-                                          <input type="radio" name="gender" value="other">
-                                      <label>other</label>
-                                          <!-- <button onclick="getSelectedGender()">Submit</button> -->
+
+                                            <input type="radio" name="gender" value="male">
+                                            <label>Male</label>
+                                            <input type="radio" name="gender" value="female">
+                                            <label>Female</label>
+                                            <input type="radio" name="gender" value="other">
+                                            <label>other</label>
+                                            <!-- <button onclick="getSelectedGender()">Submit</button> -->
                                         </div>
-                                        
+
                                     </div>
-                                   
-                                    
-    
-    
+
+
+
+
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fa fa-suitcase"></i></span>
-                                       
-    <select class="form-control" id="roles" name="roles">
-      <option value="Software Engineer">Software Engineer</option>
-      <option value="Front-End Developer">Front-End Developer</option>
-      <option value="Back-End Developer">Back-End Developer</option>
-      <option value="Full-Stack Developer">Full-Stack Developer</option>
-      <option value="DevOps Engineer">DevOps Engineer</option>
-      <option value="Quality Assurance Engineer">Quality Assurance Engineer</option>
-      <option value="Database Administrator">Database Administrator</option>
-      <option value="Technical Support Specialist">Technical Support Specialist</option>
-      <option value="Technical Writer">Technical Writer</option>
-      <option value="Project Manager">Project Manager</option>
-      <option value="Business Analyst">Business Analyst</option>
-      <option value="Data Analyst">Data Analyst</option>
-      <option value="Data Scientist">Data Scientist</option>
-      <option value="UI/UX Designer">UI/UX Designer</option>
-      <option value="Product Manager">Product Manager</option>
-      <option value="Sales Engineer">Sales Engineer</option>
-      <option value="Marketing Manager">Marketing Manager</option>
-      <option value="Security Engineer">Security Engineer</option>
-      <option value="Network Engineer">Network Engineer</option>
-      <option value="Cloud Architect">Cloud Architect</option>
-    </select>
-    
+
+                                        <select class="form-control" id="roles" name="roles">
+                                            <option value="Software Engineer">Software Engineer</option>
+                                            <option value="Front-End Developer">Front-End Developer</option>
+                                            <option value="Back-End Developer">Back-End Developer</option>
+                                            <option value="Full-Stack Developer">Full-Stack Developer</option>
+                                            <option value="DevOps Engineer">DevOps Engineer</option>
+                                            <option value="Quality Assurance Engineer">Quality Assurance Engineer
+                                            </option>
+                                            <option value="Database Administrator">Database Administrator</option>
+                                            <option value="Technical Support Specialist">Technical Support Specialist
+                                            </option>
+                                            <option value="Technical Writer">Technical Writer</option>
+                                            <option value="Project Manager">Project Manager</option>
+                                            <option value="Business Analyst">Business Analyst</option>
+                                            <option value="Data Analyst">Data Analyst</option>
+                                            <option value="Data Scientist">Data Scientist</option>
+                                            <option value="UI/UX Designer">UI/UX Designer</option>
+                                            <option value="Product Manager">Product Manager</option>
+                                            <option value="Sales Engineer">Sales Engineer</option>
+                                            <option value="Marketing Manager">Marketing Manager</option>
+                                            <option value="Security Engineer">Security Engineer</option>
+                                            <option value="Network Engineer">Network Engineer</option>
+                                            <option value="Cloud Architect">Cloud Architect</option>
+                                        </select>
+
                                     </div>
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fas fa-mobile-alt"></i></span>
-                                        <input id="number" type="number" class="form-control" placeholder="Enter Number">
+                                        <input id="number" type="number" class="form-control"
+                                            placeholder="Enter Number with code(+91)">
                                     </div>
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fas fa-key"></i></span>
-                                        <input id="password" type="password" class="form-control" placeholder="Create Password">
+                                        <input id="password" type="password" class="form-control"
+                                            placeholder="Create Password">
                                     </div>
                                     <div class="form-group">
                                         <span class="input-icon"><i class="fas fa-key"></i></span>
@@ -357,10 +450,10 @@
                                     </div>
                                     <div class="form-group checkbox">
                                         <input type="checkbox">
-                                        <label>Remamber me</label>
+                                        <label>Remember me</label>
                                     </div>
                                     <a href="" class="forgot-pass">Forgot Password?</a>
-                                    <button class="btn"  name="register" id="register">Register</button>
+                                    <button class="btn" name="register" id="register">Register</button>
                                 </div>
                             </div>
                         </div>
@@ -369,149 +462,169 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+        const button = document.getElementById("myButton");
+        const options = document.getElementById("myOptions");
+
+        button.addEventListener("click", function () {
+            // console.log("Button clicked");
+            window.scroll({
+                top: document.documentElement.scrollTop + 1400,
+                behavior: 'smooth'
+            });
+        });
 
 
- <!-- script to pop up -->
- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js">
+    </script>
 
- </script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    
-    import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-    import { getDatabase,set ,ref, update, child, serverTimestamp  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+    <!-- script -->
+    <script type="tex/javascript" src="../static/js/sampe.js"></script>
+    <!-- script to pop up -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js">
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-    apiKey: "AIzaSyCr_-XEuiGMItFQ_NjXeCY5Q9cuUqUp9lo",
-    authDomain: "stress-detection-fffaa.firebaseapp.com",
-    projectId: "stress-detection-fffaa",
-    storageBucket: "stress-detection-fffaa.appspot.com",
-    messagingSenderId: "835851634384",
-    appId: "1:835851634384:web:a7c64cfc67defea8db00d5",
-    measurementId: "G-8NB1JD9QK0"
-  };
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth();
-    const database = getDatabase(app);
-    const usersRef = ref(database, 'users');
-    console.log(app);
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getDatabase, set, ref, update, child, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCr_-XEuiGMItFQ_NjXeCY5Q9cuUqUp9lo",
+            authDomain: "stress-detection-fffaa.firebaseapp.com",
+            projectId: "stress-detection-fffaa",
+            storageBucket: "stress-detection-fffaa.appspot.com",
+            messagingSenderId: "835851634384",
+            appId: "1:835851634384:web:a7c64cfc67defea8db00d5",
+            measurementId: "G-8NB1JD9QK0"
+        };
 
-    //----- New Registration code start	  
-    document.getElementById("register").addEventListener("click", function() {
-        var email =  document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var number = document.getElementById("number").value;
-        var roles = document.getElementById("roles").value;
-        var  name = document.getElementById("name").value;
-      //   var gender = document.getAnimations("gender").value;
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        const database = getDatabase(app);
+        const usersRef = ref(database, 'users');
+        // console.log(app);
 
 
-        //radio button
-        var gender = null;
-var radios = document.querySelectorAll('input[name="gender"]');
-for (var i = 0; i < radios.length; i++) {
-  if (radios[i].checked) {
-    gender = radios[i].value;
-    break;
-  }
-}
-
-        //For new registration
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          console.log(user);
-          var userId = user.uid;
-          writeUserData(userId,name,email,number,roles,gender,password)
-          function writeUserData(userId, name, email, number,roles,gender,password) {
-
-       set(ref(database, 'users/' + userId), {
-  
-            name: name,
-          email: email,
-          password: password,
-          number : number,
-          gender : gender,
-          roles : roles          
-});
-}
-          alert("Registration successfully!!");
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
-          console.log(errorMessage);
-          alert(error);
-        });		  		  
-    });
-    //----- End
-
-    //----- Login code start	  
-    document.getElementById("login").addEventListener("click", function() {
-        var email =  document.getElementById("login_email").value;
-        var password = document.getElementById("login_password").value;
-
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          var uid = user.uid;
-          setUserOnline(uid);
-          console.log(user);
-          console.log(uid);
-          alert(" Login successfully!!!");
-
-          if (uid === "VqYfspVm3nYZZlxanxiwwHHVkSn2") {
-      window.location.href = "/dashboard"; // Redirect to the admin page.
-    } else {
-      window.location.href = "/userpage"; // Redirect to the user page.
-    }
-
-          // demo start
+        //----- New Registration code start	  
+        document.getElementById("register").addEventListener("click", function () {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var number = document.getElementById("number").value;
+            var roles = document.getElementById("roles").value;
+            var name = document.getElementById("name").value;
+            //   var gender = document.getAnimations("gender").value;
 
 
-function setUserOnline(userId) {
-  const userRef = child(usersRef, userId);
-  update(userRef, {
-    online: true,
-    lastOnline: serverTimestamp()
-  });
-}
+            //radio button
+            var gender = null;
+            var radios = document.querySelectorAll('input[name="gender"]');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    gender = radios[i].value;
+                    break;
+                }
+            }
+
+            //For new registration
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user);
+                    var userId = user.uid;
+                    writeUserData(userId, name, email, number, roles, gender, password)
+                    function writeUserData(userId, name, email, number, roles, gender, password) {
+
+                        set(ref(database, 'users/' + userId), {
+
+                            name: name,
+                            email: email,
+                            password: password,
+                            number: number,
+                            gender: gender,
+                            roles: roles
+                        });
+                    }
+                    alert("Registration successfully!!");
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                    console.log(errorMessage);
+                    alert(error);
+                });
+        });
+        //----- End
+
+        //----- Login code start	  
+        document.getElementById("login").addEventListener("click", function () {
+            var email = document.getElementById("login_email").value;
+            var password = document.getElementById("login_password").value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    var uid = user.uid;
+                    setUserOnline(uid);
+                    console.log(user);
+                    console.log(uid);
+                    alert(" Login successfully!!!");
+
+                    if (uid === "VqYfspVm3nYZZlxanxiwwHHVkSn2") {
+                        window.location.href = "/dashboard"; // Redirect to the admin page.
+                    } else {
+                        window.location.href = "/userpage"; // Redirect to the user page.
+                    }
+
+                    // demo start
 
 
-        //  demo ends
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorMessage);
-          alert(errorMessage);
-        });		  		  
-    });
-  
+                    function setUserOnline(userId) {
+                        const userRef = child(usersRef, userId);
+                        update(userRef, {
+                            online: true,
+                            lastOnline: serverTimestamp(),
+                            StressCount: 0
+                        });
+                    }
 
-  </script>
+
+                    //  demo ends
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorMessage);
+                    alert(errorMessage);
+                });
+        });
+
+
+    </script>
 </body>
 
 <footer>
     <div class="container">
-      <p>&copy; 2023 . All rights reserved.</p>
-      <p>Contact us: <a href="mailto:962319104076@students.amrita.edu.in">962319104076@students.amrita.edu.in</a></p>
+        <p>&copy; 2023 .</p>
+        <p>Contact us: <a href="mailto:962319104076@students.amrita.edu.in">962319104076@students.amrita.edu.in</a></p>
     </div>
-  </footer>
+</footer>
 
 </html>

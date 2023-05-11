@@ -10,3 +10,4 @@
             $.get("/stop_process");
         }
     }
+
