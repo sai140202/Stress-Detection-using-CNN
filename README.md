@@ -27,11 +27,13 @@
     <h2>Usage</h2>
     <ol>
       <li>Run the Flask application: <code>`python app.py`</code></li>
-       <li> Open a web browser and go to<code>`http://localhost:5000`</code></li>
-      
+       <li> Open a web browser and go to<code>`http://localhost:5000`</code></li> 
     </ol>
-     <h2>License</h2>
+    <h2>License</h2>
     <p>MIT License</p>
+    
+     
+    
    
   </body>
 </html>
