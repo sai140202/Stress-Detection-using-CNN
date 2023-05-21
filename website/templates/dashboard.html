@@ -373,9 +373,9 @@ td7.classList.add("text-center","cursor-pointer");
   iTag.addEventListener("click", function() {
   // Do something when the icon is clicked
 
-  const accountSid = 'ACa4c7750616eff9b924f31326a7b25c12';
-const authToken = 'd38f488322b5cc4ee528dc3a49c61910';
-const fromNumber = +14753487403;
+  const accountSid = 'accountSid';
+const authToken = 'authToken';
+const fromNumber = 'fromNumber';
 const toNumber = number;
 const message = `Dear ${name},
 You have ${StressCount}% stress, Working in the technology industry can be rewarding and challenging at the same time.
@@ -402,18 +402,7 @@ fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, 
 
   
 
-//   const accountSid = ACa4c7750616eff9b924f31326a7b25c12;
-// const authToken = d38f488322b5cc4ee528dc3a49c61910;
-// const client = new twilio(accountSid, authToken);
 
-//   client.messages
-//       .create({
-//          body: 'This is a test message from Twilio',
-//          from: +14753487403,
-//          to: number
-//       })
-//       .then(message => console.log(message.sid))
-//       .catch(error => console.log(error));
   
   alert("The message has been sent to "+number);
 });
